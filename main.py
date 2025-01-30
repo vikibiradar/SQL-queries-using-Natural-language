@@ -29,7 +29,7 @@ def get_database_schema(database):
 
 def get_sql_query(user_query, schema, model_name):
     """Generate SQL query from user input using the database schema."""
-    # Convert schema to a string format for the prompt
+    # schema to a string format for the prompt
     schema_info = "\n".join([f"Table: {table}, Columns: {', '.join(columns)}" for table, columns in schema.items()])
     
     groq_sys_prompt = ChatPromptTemplate.from_template(f"""
@@ -75,16 +75,16 @@ def return_sql_response(sql_query, database):
 def main():
     st.set_page_config(page_title="Text To SQL", layout="wide")
     st.title("Talk to Your Database!")
-    st.markdown("A simple app to convert natural language to SQL queries and retrieve data from your database.")
+    st.markdown("App to convert natural language to SQL queries and retrieve data from your database.")
 
-    # Database input section
+    # Database selection 
     st.sidebar.header("Database Input")
     database_option = st.sidebar.radio("Choose database input method:", ("Upload Database", "Database URL", "Use Sample Database"))
 
     if database_option == "Upload Database":
         uploaded_file = st.sidebar.file_uploader("Upload your SQLite database", type=["db", "sqlite"])
         if uploaded_file is not None:
-            # Save the uploaded file to a temporary location
+            # Save the uploaded file 
             with open("temp.db", "wb") as f:
                 f.write(uploaded_file.getbuffer())
             database = "temp.db"
@@ -113,7 +113,7 @@ def main():
     else:
         st.sidebar.write("No tables found or error fetching schema.")
 
-    # Model selection section
+    # Select Model
     st.sidebar.header("Model Selection")
     model_name = st.sidebar.selectbox(
         "Choose the LLM model:",
@@ -133,14 +133,14 @@ def main():
         if sql_query:
             st.code(sql_query, language="sql")
             
-            # Retrieve data from the database
+            # Retrieve data
             st.subheader("Query Results")
             retrieved_data = return_sql_response(sql_query, database)
 
             if not retrieved_data.empty:
                 st.dataframe(retrieved_data, use_container_width=True)
 
-                # Download button for query results
+                # Downloading the reterived data
                 csv = retrieved_data.to_csv(index=False)
                 st.download_button(
                     label="Download Results as CSV",

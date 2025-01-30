@@ -50,7 +50,7 @@ def get_sql_query(user_query, schema, model_name):
     """)
     
     llm = ChatGroq(
-        groq_api_key=os.environ.get("GROQ_API_KEY"),
+        groq_api_key=st.secrets["GROQ_API_KEY"],
         model_name=model_name
     )
 

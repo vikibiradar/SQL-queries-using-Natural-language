@@ -9,6 +9,12 @@ This is App which converts natural language questions into SQL queries and retri
 - View query results and download them as a CSV file.
 
 ---
+## Class UML Diagram:
+UML diagram is generated using PLANTUML WEB PLATFORM
+![Screenshot 2025-01-30 095458](https://github.com/user-attachments/assets/30acb6e0-8da2-419a-93e5-3096c7f92529)
+
+##Sequence UML Diagram:
+![Screenshot 2025-01-30 100219](https://github.com/user-attachments/assets/d8e9091c-ff27-4783-9775-b27b9ce7bd14)
 
 ## How to Use
 
@@ -33,12 +39,7 @@ streamlit run main.py
 #Data after downloading, will be in csv format
 ![image](https://github.com/user-attachments/assets/6b63d654-b2d9-4ce3-ab02-ba49e88b5eb0)
 
-## Class UML Diagram:
-UML diagram is generated using PLANTUML WEB PLATFORM
-![Screenshot 2025-01-30 095458](https://github.com/user-attachments/assets/30acb6e0-8da2-419a-93e5-3096c7f92529)
 
-##Sequence UML Diagram:
-![Screenshot 2025-01-30 100219](https://github.com/user-attachments/assets/d8e9091c-ff27-4783-9775-b27b9ce7bd14)
 
 
 

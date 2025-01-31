@@ -45,6 +45,7 @@ def get_sql_query(user_query, schema, model_name):
         5. If the question involves sorting, use the ORDER BY clause.
         6. If the question involves joining tables, use the appropriate JOIN syntax.
         7. If the question involves counting or aggregating, use the appropriate SQL functions (e.g., COUNT, SUM, AVG).
+        8. Do not use any Apostrophe at start and end of querry
 
         Now, convert the following English question into a valid SQL query: {{user_query}}.
     """)
